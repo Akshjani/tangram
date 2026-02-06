@@ -1,28 +1,106 @@
-<h1>Unity Developer Test</h1>
-Credit: This test was originally created by Joe Shochet, co-founder and CTO of codeSpark. Thanks, Joe!
-<h2>Instructions</h2>
-<h4>1. Implement a basic <a href="https://en.wikipedia.org/wiki/Tangram">tangram game</a> in Unity, starting from our project template.</h4>
-<h4>2. Clone or fork this Unity project on github.</h4>
-<h4>3. Implement the Piece.cs class to add things like:</h4>
-<ul>
-<li>Moving pieces</li>
-<li>Rotating pieces</li>
-<li>Puzzle completion detection</li>
-<li>Sounds and other effects for polish</li>
-<li>Other fun ideas!</li>
-</ul>
-<h4>4. Feel free to add more classes, models, small plugins, and modify any of the prefabs and setup given.</h4>
-<h4>5. Time expectation is around 2-3 hours.</h4>
-It is not expected that you will build a fully completed game, so it is up to you how you spend your time. Our
-audience is aged 4-10; create a gameplay experience that will be easy for young kids.
-<h1>Requirements</h1>
-<h4>This project template was built in Unity 6000.0.38f1. Any Unity 6 LTS should work!</h4>
-<h4>Target Desktop, WebGL, Android, or iOS.</h4>
+🧩 Tangram Puzzle – Unity Developer Test
 
-<h1>Rubric</h1>
-Your submission will be evaluated on code quality, readability, sophistication, and gameplay feel.
-When completed, email adam.saslow@beginlearning.com with the following:
-<h4>1. Zip of your Unity project (or link to a github fork, cloud file, etc). No need to create a build, but if you
-want to, you can include or link that too.</h4>
-<h4>2. Any implementation notes, planning docs, assumptions, or design thoughts you’d like to include.</h4>
-<h4>3. Estimate of time spent (expectation is around 2-3 hours).</h4>
+A simple, kid-friendly tangram puzzle game built in Unity 6 (6000.0.38f1) as part of a Unity Developer technical test.
+
+The goal is to drag, rotate, and snap tangram pieces into their correct template positions.
+
+🎮 Gameplay Overview
+
+Drag pieces using mouse (or touch)
+
+Rotate pieces to match the template
+
+Pieces snap and lock when placed correctly
+
+Audio feedback for interactions
+
+Puzzle completes when all pieces are snapped
+
+Designed for ages 4–10 with forgiving snap tolerance and clear feedback.
+
+✨ Features Implemented
+
+Smooth top-down drag on XZ plane
+
+Rotation via mouse / keyboard (step-based)
+
+Collision + rotation-based snapping
+
+Locking pieces after correct placement
+
+Centralized audio feedback:
+
+Click → interaction / rotation
+
+Pop → correct snap
+
+Bump → incorrect placement
+
+Puzzle completion detection using event-based architecture
+
+Clean separation between Piece, Target, and GameManager logic
+
+🧠 Technical Notes / Design Decisions
+
+Top-down camera with fixed Y-plane movement
+
+Used ray-plane intersection for accurate dragging
+
+Avoided FindObjectOfType in gameplay flow
+
+Used events (OnPieceSnapped) to decouple Piece and GameManager
+
+Snap logic checks rotation tolerance instead of exact values to keep gameplay forgiving for kids
+
+Audio handled via a centralized AudioManager
+
+🛠 Controls (Desktop)
+Action	Input
+Drag piece	Left Mouse Button
+Rotate (free)	Right / Middle Mouse Button
+Rotate (step)	R / E
+Reset piece	Space
+
+Note: Rotation input can easily be swapped with UI buttons for mobile.
+
+📁 Project Structure (Key Scripts)
+Assets/
+ ├── Scripts/
+ │   ├── Piece.cs        // Drag, rotate, snap logic
+ │   ├── Target.cs       // Snap targets
+ │   ├── GameManager.cs  // Puzzle completion
+ │   └── AudioManager.cs // Sound effects
+
+⏱ Estimated Time Spent
+
+~2.5 hours
+
+Focused on:
+
+Core gameplay feel
+
+Clean code & architecture
+
+Kid-friendly interaction
+
+Light polish (audio feedback)
+
+🚀 Possible Improvements (With More Time)
+
+Mobile-friendly rotate UI button
+
+Visual snap preview / glow
+
+Confetti + win animation
+
+Multiple puzzle levels
+
+Accessibility improvements
+
+🔧 Unity Version
+
+Unity 6000.0.38f1 (Unity 6 LTS)
+
+📩 Submission Notes
+
+This project prioritizes clarity, gameplay feel, and maintainable code over feature completeness, as recommended in the test instructions.
